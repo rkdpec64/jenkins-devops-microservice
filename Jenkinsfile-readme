@@ -1,0 +1,43 @@
+//old way
+node {
+	stage('Build') {
+		echo "Build"
+	}
+	stage('Test') {
+		echo "Test"
+	}
+	stage('Integration Test') {
+		echo "Integration Test"
+	}
+}
+
+//scripted - stage is optional
+node {
+		echo "Build"
+		echo "Test"
+		echo "Integration Test"
+}
+
+//Declarative  
+// agent - something like docker
+//stages is mandatory
+pipeline {
+		agent any
+		stages {
+			stage('Build') {
+				steps {
+					echo "Build"
+				}
+			}
+			stage('Build') {
+				steps {
+					echo "Test"
+				}
+			}
+			stage('Build') {
+				steps {
+					echo "Integration Test"
+				}
+			}
+		}
+}
