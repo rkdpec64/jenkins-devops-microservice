@@ -41,3 +41,19 @@ pipeline {
 			}
 		}
 }
+
+// post pipeline operations
+		post {
+			always {
+				echo 'I always runs.'
+			}
+			success {
+				echo 'I run if build completes successfully.'
+			}
+			failure {
+				echo 'I run if build is failed'
+			}
+			changed {
+				echo "I run if build status changed, say from success to failed or vice versa"
+			}
+		}
